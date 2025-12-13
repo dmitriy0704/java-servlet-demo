@@ -1,13 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>First JSP App</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+    <jsp:include page="header.html"/>
+    <p>Main content 1</p>
+    <p>Main content 2</p>
+    <p>Main content 3</p>
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>

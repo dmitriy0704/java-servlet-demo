@@ -2,25 +2,27 @@ package dev.folomkin.javaservletdemo;
 
 import java.io.*;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet("/hello23")
 public class HelloServlet extends HttpServlet {
-    private String message;
 
-    public void init() {
-        message = "Hello World!";
-    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+
+        try {
+            writer.println("Connection to ProductDB succesfull!");
+        } finally {
+            writer.close();
+        }
     }
 
     public void destroy() {
